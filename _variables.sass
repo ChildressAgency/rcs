@@ -1,0 +1,38 @@
+// FONTS
+%font-os
+    font-family: 'Open Sans', sans-serif
+
+%font-os-italic
+    font-family: 'Open Sans', sans-serif
+    font-style: italic
+
+%font-os-semibold
+    font-family: 'Open Sans', sans-serif
+    font-weight: 600
+
+%font-os-bold
+    font-family: 'Open Sans', sans-serif
+    font-weight: 700
+
+
+// COLORS
+$color-primary: #6ea34f
+$color-secondary: #005d83
+$color-secondary-dark: #401958
+$color-accent: #f7941f
+
+$color-dark-grey: #333
+
+$color-black: #000
+$color-white: #fff
+
+
+// MISC
+=font-size($size)
+    font-size: $size + px
+
+=fluid-font($min-font, $max-font, $min-viewport: 280, $max-viewport: 576)
+    font-size: calc((#{$min-font} * 1px) + #{strip-unit($max-font - $min-font)} * ((100vw - (#{$min-viewport} * 1px)) / #{strip-unit($max-viewport - $min-viewport)}))
+
+@function strip-unit($value)
+    @return $value / ($value * 0 + 1)

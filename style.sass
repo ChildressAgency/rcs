@@ -1,0 +1,73 @@
+@import '_reset.sass'
+@import '_variables.sass'
+
+
+body
+    line-height: 1.5
+    overflow-x: hidden
+
+a
+    color: $color-primary
+    text-decoration: none
+
+    &:hover
+        text-decoration: underline
+
+img
+    height: auto
+    max-width: 100%
+
+div,
+div::before, //sass-lint:disable-line force-pseudo-nesting
+div::after //sass-lint:disable-line force-pseudo-nesting
+    background-position: center center
+    background-size: cover
+
+p
+    margin-bottom: 15px
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+    @extend %font-os
+
+///////////////////////////////////////////////////////////////////////////////
+// HEADER                                                                    //
+///////////////////////////////////////////////////////////////////////////////
+
+.header
+    align-items: center
+    display: flex
+    height: 100px
+    justify-content: space-between
+    padding: 15px 30px
+
+    &__brand
+        flex: 1
+        height: 100%
+
+        img
+            height: 100%
+
+    &__nav
+        flex: 1
+
+///////////////////////////////////////////////////////////////////////////////
+// COLORS                                                                    //
+///////////////////////////////////////////////////////////////////////////////
+
+.has-orange-background-color
+    background-color: $color-primary
+
+.has-orange-color
+    color: $color-primary
+
+
+///////////////////////////////////////////////////////////////////////////////
+// FOOTER                                                                    //
+/////////////////////////////////////////////////////////////////////////////// 
+
+@import '_responsive.sass'
