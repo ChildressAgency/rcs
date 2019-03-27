@@ -1,0 +1,87 @@
+///////////////////////////////////////////////////////////////////////////////
+// 576                                                                       //
+///////////////////////////////////////////////////////////////////////////////
+
+@media screen and (min-width: 576px)
+    .container
+        max-width: 540px
+
+        &--fluid
+            max-width: 100%
+
+///////////////////////////////////////////////////////////////////////////////
+// 768                                                                       //
+///////////////////////////////////////////////////////////////////////////////
+
+@media screen and (min-width: 768px)
+    .container
+        max-width: 720px
+
+        &--fluid
+            max-width: 100%
+
+        &--thin
+            max-width: 576px
+
+    .navbar
+        &__toggler
+            display: none
+
+        &__nav
+            flex-direction: row
+            max-height: 100%
+            max-height: unset !important // sass-lint:disable-line no-important no-duplicate-properties
+
+        &__item
+            margin-left: 15px
+            margin-right: 15px
+
+        &__drop
+            &:hover
+                & > .navbar__drop-menu
+                    display: block
+
+        &__drop-menu
+            display: none
+            margin-top: 15px
+            max-height: unset !important // sass-lint:disable-line no-important
+            position: absolute
+
+///////////////////////////////////////////////////////////////////////////////
+// 992                                                                       //
+///////////////////////////////////////////////////////////////////////////////
+
+@media screen and (min-width: 992px)
+    .container
+        max-width: 960px
+
+        &--fluid
+            max-width: 100%
+
+        &--thin
+            max-width: 793px
+
+    .header
+        flex-direction: row
+
+        &__brand
+            margin-bottom: 0
+            margin-right: 15px
+
+    .navbar
+        &__item
+            +font-size(18)
+
+///////////////////////////////////////////////////////////////////////////////
+// 1200                                                                      //
+///////////////////////////////////////////////////////////////////////////////
+
+@media screen and (min-width: 1200px)
+    .container
+        max-width: 1140px
+
+        &--fluid
+            max-width: 100%
+
+        &--thin
+            max-width: 960px

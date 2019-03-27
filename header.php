@@ -29,7 +29,7 @@
 <body>
     <header class="header">
         <div class='header__brand'>
-            <img src="<?php echo get_option( 'header-logo' ); ?>" />
+            <a href="<?php echo home_url(); ?>" ><img src="<?php echo get_option( 'header-logo' ); ?>" /></a>
         </div>
         <div class="header__nav navbar">
             <button class="navbar__toggler" type="button" data-target="#main-menu">

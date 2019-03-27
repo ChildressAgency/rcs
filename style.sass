@@ -7,10 +7,11 @@ body
     overflow-x: hidden
 
 a
-    color: $color-primary
+    color: $color-links
     text-decoration: none
 
     &:hover
+        color: $color-links-hover
         text-decoration: underline
 
 img
@@ -41,6 +42,7 @@ h6
 .header
     align-items: center
     display: flex
+    flex-direction: column
     height: 100px
     justify-content: space-between
     padding: 15px 30px
@@ -48,12 +50,103 @@ h6
     &__brand
         flex: 1
         height: 100%
+        margin-bottom: 15px
 
         img
             height: 100%
 
+.navbar
+    &__toggler
+        +font-size(30)
+        background-color: transparent
+        border: 0
+        cursor: pointer
+        display: block
+        margin-bottom: 15px
+        margin-left: auto
+        margin-right: auto
+
     &__nav
-        flex: 1
+        align-items: center
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        list-style-type: none
+        max-height: 0
+        overflow: hidden
+        transition: .3s max-height ease
+
+    &__item
+        +font-size(16)
+        font-weight: bold
+        padding-bottom: 15px
+        padding-top: 5px
+        text-align: center
+
+        &::before
+            display: none
+
+        &:first-of-type
+            margin-left: 0
+
+        &:last-of-type
+            margin-right: 0
+
+    &__link
+        @extend %font-os
+        color: $color-navbar
+        text-decoration: none
+
+        &:hover
+            color: $color-navbar-hover
+            text-decoration: none
+
+    &__drop-menu
+        background-color: $color-drop-menu-bg
+        list-style: none
+        max-height: 0
+        overflow: hidden
+        position: relative
+        transition: max-height .3s ease
+        z-index: 99
+
+        li
+            margin-bottom: 0
+
+            a
+                transition: background-color .3s ease
+
+                &:hover
+                    background-color: $color-drop-menu-hover
+                    font-style: italic
+
+        &:hover
+            display: block
+
+        &::before
+            content: ' '
+            height: 45px
+            left: 0
+            position: absolute
+            top: -45px
+            width: 100%
+
+    &__drop-item
+        +font-size(18)
+        color: $color-drop-text
+        display: block
+        margin-bottom: 0
+        padding: 5px 30px
+
+        &:first-of-type
+            padding-top: 15px
+
+        &:last-of-type
+            padding-bottom: 15px
+
+        &:hover
+            background-color: $color-drop-text-hover
+            text-decoration: none
 
 ///////////////////////////////////////////////////////////////////////////////
 // COLORS                                                                    //
@@ -64,6 +157,30 @@ h6
 
 .has-orange-color
     color: $color-primary
+
+
+///////////////////////////////////////////////////////////////////////////////
+// CONTENT                                                                    //
+///////////////////////////////////////////////////////////////////////////////
+
+.container
+    margin-left: auto
+    margin-right: auto
+    padding-left: 15px
+    padding-right: 15px
+    position: relative
+    width: 100%
+
+    &::after
+        clear: both
+        content: ' '
+        display: table
+
+    &--fluid
+        max-width: 100%
+
+    &--thin
+        width: 100%
 
 
 ///////////////////////////////////////////////////////////////////////////////
