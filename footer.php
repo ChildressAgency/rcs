@@ -29,11 +29,12 @@
 
                         if( $query->have_posts() ){
                             while( $query->have_posts() ){
-                                $query->the_post();
-
-                                echo '<p><strong>' . get_the_title() . '</strong></p>';
-                                echo '<p>' . get_the_content() . '</p>';
-                            }
+                                $query->the_post();?>
+                                <div class="footer__slide">
+                                    <p><strong><?php echo get_the_title(); ?></strong></p>
+                                    <p><?php echo get_the_content(); ?></p>
+                                </div>
+                            <?php }
                         }
                         ?>
                     </div>

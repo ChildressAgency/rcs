@@ -50,4 +50,14 @@ $(document).ready( function(){
 
         }
     });
+
+    /**
+     * FOOTER
+     */
+    $( '.footer__slider' ).slick({
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        infinite: true,
+    });
 } );
