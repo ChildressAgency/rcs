@@ -31,32 +31,32 @@ function container_block(){
 add_action( 'init', 'container_block', 10, 0 );
 
 ///////////////////////////////////////////////////////////////////////////////
-// HERO BOX                                                                  //
+// GRADIENT BOX                                                              //
 ///////////////////////////////////////////////////////////////////////////////
-function hero_box_block(){
+function gradient_box_block(){
     wp_register_script(
-        'hero-box-script',
-        get_template_directory_uri() . '/js/block-hero-box.js',
+        'gradient-box-script',
+        get_template_directory_uri() . '/js/block-gradient-box.js',
         array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' )
     );
 
     wp_register_style(
-        'hero-box-editor-style',
-        get_template_directory_uri() . '/css/block-hero-box-editor-style.css',
+        'gradient-box-editor-style',
+        get_template_directory_uri() . '/css/block-gradient-box-editor-style.css',
         array( 'wp-edit-blocks' )
     );
 
     wp_register_style(
-        'hero-box-style',
-        get_template_directory_uri() . '/css/block-hero-box-style.css',
+        'gradient-box-style',
+        get_template_directory_uri() . '/css/block-gradient-box-style.css',
         array( 'wp-edit-blocks' )
     );
 
-    register_block_type('childress/hero-box', array(
-        'editor_script' => 'hero-box-script',
-        'editor_style'  => 'hero-box-editor-style',
-        'style'  => 'hero-box-style',
+    register_block_type('childress/gradient-box', array(
+        'editor_script' => 'gradient-box-script',
+        'editor_style'  => 'gradient-box-editor-style',
+        'style'  => 'gradient-box-style',
     ) );
 }
-add_action( 'init', 'hero_box_block', 10, 0 );
+add_action( 'init', 'gradient_box_block', 10, 0 );
 
