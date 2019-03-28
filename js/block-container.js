@@ -80,7 +80,7 @@ registerBlockType( 'childress/container', {
         const { classes, backgroundColor, includePadding } = attributes;
 
         return (
-            <div className={ 'wp-block-childress-container container-wrapper' } style={{ backgroundColor: backgroundColor }}>
+            <div className='container-wrapper' style={{ backgroundColor: backgroundColor }}>
                 <div className={ classes + ( includePadding ? '' : ' container--no-padding' )}>
                     <InnerBlocks.Content />
                 </div>
