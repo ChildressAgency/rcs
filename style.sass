@@ -3,12 +3,13 @@
 
 
 body
+    @extend %font-os
     line-height: 1.5
     overflow-x: hidden
 
 a
     color: $color-links
-    text-decoration: none
+    text-decoration: underline
 
     &:hover
         color: $color-links-hover
@@ -151,23 +152,24 @@ h6
 // COLORS                                                                    //
 ///////////////////////////////////////////////////////////////////////////////
 
-.has-green-background-color
-    background-color: $color-primary
-
-.has-green-color
-    color: $color-primary
 
 .has-blue-background-color
-    background-color: $color-secondary
+    background-color: $color-primary
 
 .has-blue-color
-    color: $color-secondary
+    color: $color-primary
 
 .has-dark-blue-background-color
-    background-color: $color-secondary-dark
+    background-color: $color-primary-dark
 
 .has-dark-blue-color
-    color: $color-secondary-dark
+    color: $color-primary-dark
+
+.has-green-background-color
+    background-color: $color-secondary
+
+.has-green-color
+    color: $color-secondary
 
 .has-orange-background-color
     background-color: $color-accent
@@ -227,5 +229,43 @@ h6
 ///////////////////////////////////////////////////////////////////////////////
 // FOOTER                                                                    //
 /////////////////////////////////////////////////////////////////////////////// 
+
+.footer
+    padding: 0 60px
+
+    &__brand
+        +font-size(22)
+        align-items: center
+        border-bottom: 1px solid $color-footer-text
+        color: $color-footer-text
+        display: flex
+        font-weight: normal
+        height: 100px
+        justify-content: flex-start
+        margin-bottom: 30px
+        padding-bottom: 30px
+
+        img
+            height: 100%
+
+    &__brand-capital
+        +font-size(36)
+        font-weight: bold
+        margin-left: 15px
+
+    &__content
+        align-items: center
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+
+        & > *
+            +font-size(20)
+            text-align: center
+
+    &__heading
+        color: $color-footer-text
+        margin-bottom: 15px
+
 
 @import '_responsive.sass'

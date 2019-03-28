@@ -55,6 +55,21 @@
 		'main_menu' => 'Main Menu'
 	) );
 
+	function footer_about_slide() {
+	  register_post_type( 'about_slide',
+	    array(
+	      'labels' => array(
+	        'name' => __( 'Footer Slides' ),
+	        'singular_name' => __( 'Footer Slide' )
+	      ),
+	      'public' => true,
+	      'has_archive' => false,
+	      'show_in_rest' => true
+	    )
+	  );
+	}
+	add_action( 'init', 'footer_about_slide' );
+
 	// Custom Blocks Category
 	function custom_blocks_category( $categories, $post ){
 		return array_merge(

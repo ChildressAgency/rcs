@@ -8,6 +8,7 @@
     function register_mysettings() { // whitelist options
         register_setting( 'theme_options', 'header-logo' );
         register_setting( 'theme_options', 'footer-logo' );
+        register_setting( 'theme_options', 'footer-contact' );
         register_setting( 'theme_options', 'address' );
         register_setting( 'theme_options', 'city-state-zip' );
     }
@@ -74,6 +75,10 @@
 
                 <h2>Contact Info</h2>
                 <table class="form-table">
+                    <tr valign="top">
+                        <th scope="row">Emails</th>
+                        <td><textarea name="footer-contact" rows="4" cols="57"><?php echo esc_attr( get_option('footer-contact') ); ?></textarea></td>
+                    </tr>
                     <tr valign="top">
                         <th scope="row">Address</th>
                         <td><input type="text" name="address" value="<?php echo esc_attr( get_option('address') ); ?>" size="60" /></td>

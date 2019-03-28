@@ -48,6 +48,15 @@
             max-height: unset !important // sass-lint:disable-line no-important
             position: absolute
 
+    .footer
+        &__content
+            align-items: flex-start
+            flex-direction: row
+
+            & > *
+                +fluid-font(18, 20, 768, 992)
+                text-align: left
+
 ///////////////////////////////////////////////////////////////////////////////
 // 992                                                                       //
 ///////////////////////////////////////////////////////////////////////////////
@@ -72,6 +81,12 @@
     .navbar
         &__item
             +font-size(18)
+
+    .footer
+        &__content
+            & > *
+                +font-size(20)
+                flex: 1
 
 ///////////////////////////////////////////////////////////////////////////////
 // 1200                                                                      //
