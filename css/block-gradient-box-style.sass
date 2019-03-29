@@ -5,6 +5,13 @@
     background-size: 300%
     position: relative
 
+    &.gradient-box--bottom
+        .gradient-box
+            &__globe
+                height: 100%
+                left: 0
+                top: 0
+
     .gradient-box
         &__content
             color: $color-white
@@ -17,6 +24,14 @@
 
         &__text
             +font-size(28)
+
+        &__globe
+            height: 175%
+            left: -30%
+            position: absolute
+            top: -20%
+            width: 100%
+            z-index: -1
 
 @media screen and ( max-width: 575px )
     .wp-block-childress-gradient-box

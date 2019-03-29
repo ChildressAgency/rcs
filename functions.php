@@ -27,9 +27,25 @@
 			'', 
 			true
 		);
+		wp_register_script(
+			'threejs-script', 
+			'//cdnjs.cloudflare.com/ajax/libs/three.js/97/three.min.js', 
+			array('jquery'), 
+			'', 
+			true
+		);
+		wp_register_script(
+			'rcs-globe-script', 
+			'/wp-content/themes/rcs/js/globe.js', 
+			array('jquery'), 
+			'', 
+			true
+		);
 		
 		wp_enqueue_script( 'slick-script' );
 		wp_enqueue_script( 'rcs-script' );
+		wp_enqueue_script( 'threejs-script' );
+		wp_enqueue_script( 'rcs-globe-script' );
 	}
 	add_action('wp_enqueue_scripts', 'rcs_scripts', 100);
 	

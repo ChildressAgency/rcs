@@ -1,7 +1,7 @@
 registerBlockType( 'childress/gradient-box', {
     title: 'Gradient Box',
     icon: 'editor-contract',
-    category: 'layout',
+    category: 'custom-blocks',
 
     attributes: {
         classes: {
@@ -105,6 +105,7 @@ registerBlockType( 'childress/gradient-box', {
 
         return (
             <div className={ 'gradient-box ' + classes } style={{ backgroundImage: `url("${ path }")`, height: height }}>
+                <div className="gradient-box__globe"></div>
                 <div className='gradient-box__content'>
                     <h2 className='gradient-box__title'>{ title }</h2>
                     <p className='gradient-box__text'><RichText.Content value={ text } /></p>

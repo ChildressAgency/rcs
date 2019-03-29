@@ -60,3 +60,33 @@ function gradient_box_block(){
 }
 add_action( 'init', 'gradient_box_block', 10, 0 );
 
+///////////////////////////////////////////////////////////////////////////////
+// GLOBE                                                                     //
+///////////////////////////////////////////////////////////////////////////////
+function globe_block(){
+    wp_register_script(
+        'globe-script',
+        get_template_directory_uri() . '/js/block-globe.js',
+        array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' )
+    );
+
+    wp_register_style(
+        'globe-editor-style',
+        get_template_directory_uri() . '/css/block-globe-editor-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    wp_register_style(
+        'globe-style',
+        get_template_directory_uri() . '/css/block-globe-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    register_block_type('childress/globe', array(
+        'editor_script' => 'globe-script',
+        'editor_style'  => 'globe-editor-style',
+        'style'  => 'globe-style',
+    ) );
+}
+add_action( 'init', 'globe_block', 10, 0 );
+
