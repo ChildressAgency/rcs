@@ -244,7 +244,7 @@ THREE.CSS3DRenderer = function () {
 };
 
 // Globe
-var Globe = function(container, list) {
+var Globe = function( container ) {
 
   this.camera = null;
   this.glRenderer = null;
@@ -255,7 +255,6 @@ var Globe = function(container, list) {
   this.cssRenderer = null;
   this.particleGroup = [];
 
-  // this.container = document.getElementsByClassName(container)[0];
   this.container = container.getElementsByClassName('gradient-box__globe')[0];
 
   this.WINDOW_WIDTH = this.container.clientWidth;
@@ -267,16 +266,9 @@ var Globe = function(container, list) {
   this.windowHalfY = this.WINDOW_HEIGHT / 2;
   this.globeRadius = 200;
 
-  // if ( (" " + container.className + " ").replace(/[\n\t]/g, " ").indexOf(" gradient-box--top ") > -1 ){
-  //   this.globeRadius = 200;
-  // } else {
-  //   this.globeRadius = 100;
-  // }
-
   this.raycaster = new THREE.Raycaster();
   this.mouse = new THREE.Vector2();
 
-  this.list = ( typeof(list) == 'object' || typeof(list) == 'array') ? list: [];
   this.particleGroup = [];
 
   this.init;
@@ -478,239 +470,13 @@ var Globe = function(container, list) {
   }
 
 }
-var list = [
-  {
-    type: 'left',
-    geometry: null,
-    data: [
-      {
-        x: -105, //coordenada x
-        y: 160,
-        dx: 0,
-        dy: 0,
-        maxWidth: null,
-        minWidth: null,
-        maxHeight:null,
-        minHeight:null,
-        particle: null,
-        text: null,
-        name: '',
-        desc: '',
-        size: 0
-      },
-      {
-        x: -220,
-        y: 200,
-        dx: 0.13,
-        dy: 0.09,
-        maxWidth: -220 + 25,
-        minWidth: -220 - 25,
-        maxHeight: 200 + 25,
-        minHeight: 200 - 25,
-        particle: null,
-        text: null,
-        name: 'Innovacion\ny liderazgo',
-        desc: 'Lorem Ipsum \ndolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor',
-        size: 12
-      },
-      {
-        x: -190,
-        y: 60,
-        dx: 0,
-        dy: 0,
-        maxWidth: null,
-        minWidth: null,
-        maxHeight:null,
-        minHeight:null,
-        particle: null,
-        text: null,
-        name: '',
-        desc: '',
-        size: 0
-      },
-      {
-        x: -280,
-        y: 70,
-        dx: 0.12,
-        dy: 0.094,
-        maxWidth: -280 + 23,
-        minWidth: -280 - 23,
-        maxHeight: 70 + 20,
-        minHeight: 70 - 20,
-        particle: null,
-        text: null,
-        name: 'Equipo\nMultidiplinario',
-        desc: 'Lorem Ipsum dolor',
-        size: 8
-      },
-      {
-        x: -280,
-        y: -50,
-        dx: 0.09,
-        dy: 0.12,
-        maxWidth: -280 + 25,
-        minWidth: -280 - 25,
-        maxHeight: -50 + 28,
-        minHeight: -50 - 28,
-        particle: null,
-        text: null,
-        name: 'Partner de\nConfianza',
-        desc: 'Lorem Ipsum dolor <a href="#">hola</a>',
-        size: 9
-      },
-      {
-        x: -145,
-        y: -125,
-        dx: 0,
-        dy: 0,
-        maxWidth: null,
-        minWidth: null,
-        maxHeight:null,
-        minHeight:null,
-        particle: null,
-        text: null,
-        name: '',
-        desc: '',
-        size: 0
-      },
-      {
-        x: -260,
-        y: -200,
-        dx: 0.1,
-        dy: 0.14,
-        maxWidth: -260 + 25,
-        minWidth: -260 - 25,
-        maxHeight: -200 + 28,
-        minHeight: -200 - 28,
-        particle: null,
-        text: null,
-        name: 'Certificaciones',
-        desc: 'Lorem Ipsum dolor',
-        size: 10
-      }
-    ]
-  },
-  { 
-    type: 'right',
-    geometry: null,
-    data: [
-      {
-        x: 240,
-        y: 200,
-        dx: 0.09,
-        dy: 0.14,
-        maxWidth: 240 + 20,
-        minWidth: 240 - 20,
-        maxHeight: 200 + 20,
-        minHeight: 200 - 20,
-        particle: null,
-        text: null,
-        name: 'Visionarios',
-        desc: 'Lorem Ipsum dolor',
-        size: 5
-      },
-      {
-        x: 150,
-        y: 120,
-        dx: 0,
-        dy: 0,
-        maxWidth: null,
-        minWidth: null,
-        maxHeight: null,
-        minHeight: null,
-        particle: null,
-        text: null,
-        name: '',
-        desc: '',
-        size: 0
-      },
-      {
-        x: 250,
-        y: 80,
-        dx: 0.03,
-        dy: 0.04,
-        maxWidth: 250 + 20,
-        minWidth: 250 - 20,
-        maxHeight: 80 + 20,
-        minHeight: 80 - 20,
-        particle: null,
-        text: null,
-        name: 'Expertise',
-        desc: 'Lorem Ipsum dolor1',
-        size: 8
-      },
-      {
-        x: 290,
-        y: -80,
-        dx: 0.13,
-        dy: 0.08,
-        maxWidth: 290 + 20,
-        minWidth: 290 - 20,
-        maxHeight: -80 + 20,
-        minHeight: -80 - 20,
-        particle: null,
-        text: null,
-        name: 'Responsabilidad\nSocial',
-        desc: 'Lorem Ipsum dolor1',
-        size: 9
-      },
-      {
-        x: 186,
-        y: -70,
-        dx: 0,
-        dy: 0,
-        maxWidth: null,
-        minWidth: null,
-        maxHeight: null,
-        minHeight: null,
-        particle: null,
-        text: null,
-        name: '',
-        desc: '',
-        size: 0
-      },
-      {
-        x: 250,
-        y: -200,
-        dx: 0.16,
-        dy: 0.09,
-        maxWidth: 250 + 20,
-        minWidth: 250 - 20,
-        maxHeight: -200 + 20,
-        minHeight: -200 - 20,
-        particle: null,
-        text: null,
-        name: 'Alianzas\nEstrategicas',
-        desc: 'Lorem Ipsum dolor1',
-        size: 6
-      },
-      {
-        x: 133,
-        y: -120,
-        dx: 0,
-        dy: 0,
-        maxWidth: null,
-        minWidth: null,
-        maxHeight: null,
-        minHeight: null,
-        particle: null,
-        text: null,
-        name: '',
-        desc: '',
-        size: 0
-      },
-    ]
-  }
-];
 
 // Script
 window.onload = function() {
   var gradientBoxes = document.getElementsByClassName( 'wp-block-childress-gradient-box' );
-  var globes = [];
 
   for( i = 0; i < gradientBoxes.length; i++ ){
-    // var newGlobe = new Globe('gradient-box__globe', list);
-    var newGlobe = new Globe( gradientBoxes[i], list );
+    var newGlobe = new Globe( gradientBoxes[i] );
     newGlobe.init();
     newGlobe.update();
   }
