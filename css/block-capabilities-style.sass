@@ -1,0 +1,45 @@
+@import '../_variables.sass'
+
+.wp-block-childress-capabilities
+    padding-bottom: 30px
+    padding-top: 30px
+    text-align: center
+
+    .capabilities
+        &__heading
+            margin-bottom: 30px
+
+        &__title
+            +font-size(42)
+
+        &__subtitle
+            +font-size(36)
+            font-style: italic
+            font-weight: normal
+
+        &__columns
+            display: flex
+
+        &__column
+            flex: 1
+
+        &__column-title
+            +font-size(28)
+            color: $color-secondary
+            font-weight: bold
+            margin-bottom: 30px
+
+        &__icon
+            align-items: center
+            display: flex
+            justify-content: center
+            position: relative
+            margin-bottom: 60px
+
+            img
+                display: block
+                height: 200px
+
+                &:first-of-type
+                    opacity: 0
+                    position: absolute

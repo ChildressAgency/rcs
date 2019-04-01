@@ -59,3 +59,33 @@ function gradient_box_block(){
     ) );
 }
 add_action( 'init', 'gradient_box_block', 10, 0 );
+
+///////////////////////////////////////////////////////////////////////////////
+// CAPABILITIES                                                              //
+///////////////////////////////////////////////////////////////////////////////
+function capabilities_block(){
+    wp_register_script(
+        'capabilities-script',
+        get_template_directory_uri() . '/js/block-capabilities.js',
+        array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' )
+    );
+
+    wp_register_style(
+        'capabilities-editor-style',
+        get_template_directory_uri() . '/css/block-capabilities-editor-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    wp_register_style(
+        'capabilities-style',
+        get_template_directory_uri() . '/css/block-capabilities-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    register_block_type('childress/capabilities', array(
+        'editor_script' => 'capabilities-script',
+        'editor_style'  => 'capabilities-editor-style',
+        'style'  => 'capabilities-style',
+    ) );
+}
+add_action( 'init', 'capabilities_block', 10, 0 );
