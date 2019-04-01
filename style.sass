@@ -4,6 +4,7 @@
 
 body
     @extend %font-os
+    +font-size(20)
     line-height: 1.5
     overflow-x: hidden
 
@@ -37,7 +38,7 @@ h6
     @extend %font-os
 
 h2
-    +font-size(28)
+    +font-size(42)
     color: $color-secondary
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -227,16 +228,6 @@ h2
 
     &--thin
         width: 100%
-
-    &--half
-        .container--inner
-            width: 60%
-
-    &--right
-        .container--inner
-            margin-left: auto
-            position: relative
-            text-align: right
 
 .btn
     +font-size(20)
