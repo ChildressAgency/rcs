@@ -41,7 +41,7 @@ registerBlockType( 'childress/container', {
                     <PanelBody
                         title="Container Options">
                         <SelectControl
-                            label="Container Width"
+                            label="Variant"
                             value={ classes ? classes : '' }
                             options={[
                                 {
@@ -55,6 +55,14 @@ registerBlockType( 'childress/container', {
                                 {
                                     label: 'Fluid',
                                     value: 'container container--fluid'
+                                },
+                                {
+                                    label: 'Half-Width (Left)',
+                                    value: 'container container--half container--left'
+                                },
+                                {
+                                    label: 'Half-Width (Right)',
+                                    value: 'container container--half container--right'
                                 },
                             ]}
                             onChange={ ( value ) => setAttributes({ classes: value }) }
@@ -79,10 +87,20 @@ registerBlockType( 'childress/container', {
     save( { attributes } ) {
         const { classes, backgroundColor, includePadding } = attributes;
 
+        function isHalf(){
+            if( classes.indexOf('container--half') >= 0 ){
+                return <div className='container--inner'>
+                                <InnerBlocks.Content />
+                            </div>;
+            } else {
+                return <InnerBlocks.Content />;
+            }
+        }
+
         return (
             <div className='container-wrapper' style={{ backgroundColor: backgroundColor }}>
                 <div className={ classes + ( includePadding ? '' : ' container--no-padding' )}>
-                    <InnerBlocks.Content />
+                    { isHalf() }
                 </div>
             </div>
         );

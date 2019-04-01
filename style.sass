@@ -36,6 +36,10 @@ h5,
 h6
     @extend %font-os
 
+h2
+    +font-size(28)
+    color: $color-secondary
+
 ///////////////////////////////////////////////////////////////////////////////
 // HEADER                                                                    //
 ///////////////////////////////////////////////////////////////////////////////
@@ -223,6 +227,16 @@ h6
 
     &--thin
         width: 100%
+
+    &--half
+        .container--inner
+            width: 60%
+
+    &--right
+        .container--inner
+            margin-left: auto
+            position: relative
+            text-align: right
 
 .btn
     +font-size(20)
