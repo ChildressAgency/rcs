@@ -41,11 +41,43 @@
 			'', 
 			true
 		);
+		wp_register_script(
+			'snapsvgjs-script', 
+			'//www.lacor.info/gnrl/weft/js/snap.svg-min.js', 
+			array('jquery'), 
+			'', 
+			true
+		);
+		wp_register_script(
+			'snapsvgjs-lib-script', 
+			'//cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js', 
+			array('jquery'), 
+			'', 
+			true
+		);
+		wp_register_script(
+			'paperjs-script', 
+			'https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.9.22/paper-full.min.js', 
+			array('jquery'), 
+			'', 
+			true
+		);
+		wp_register_script(
+			'rcs-sensitive-bacterium-script', 
+			'/wp-content/themes/rcs/js/sensitive-bacterium.js', 
+			array('jquery'), 
+			'', 
+			true
+		);
 		
 		wp_enqueue_script( 'slick-script' );
 		wp_enqueue_script( 'rcs-script' );
 		wp_enqueue_script( 'threejs-script' );
 		wp_enqueue_script( 'rcs-globe-script' );
+		wp_enqueue_script( 'snapsvgjs-script' );
+		wp_enqueue_script( 'snapsvgjs-lib-script' );
+		wp_enqueue_script( 'paperjs-script' );
+		wp_enqueue_script( 'rcs-sensitive-bacterium-script' );
 	}
 	add_action('wp_enqueue_scripts', 'rcs_scripts', 100);
 	

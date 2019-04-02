@@ -164,6 +164,9 @@ registerBlockType( 'childress/capabilities-column', {
             <div className='capabilities__column'>
                 <div className='capabilities__icon'>
                     <img src={ iconHoverUrl } alt={ iconHoverAlt } className={ 'wp-image-' + iconHoverId } />
+                    { 
+                        // <canvas id='soup' className='capabilities__icon-hover-bg'></canvas>
+                    }
                     <img src={ iconUrl } alt={ iconAlt } className={ 'wp-image-' + iconId } />
                 </div>
                 <h4 className='capabilities__column-title'>{ title }</h4>
