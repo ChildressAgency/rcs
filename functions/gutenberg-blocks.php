@@ -89,3 +89,33 @@ function capabilities_block(){
     ) );
 }
 add_action( 'init', 'capabilities_block', 10, 0 );
+
+///////////////////////////////////////////////////////////////////////////////
+// FEATURES                                                                  //
+///////////////////////////////////////////////////////////////////////////////
+function features_block(){
+    wp_register_script(
+        'features-script',
+        get_template_directory_uri() . '/js/block-features.js',
+        array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' )
+    );
+
+    wp_register_style(
+        'features-editor-style',
+        get_template_directory_uri() . '/css/block-features-editor-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    wp_register_style(
+        'features-style',
+        get_template_directory_uri() . '/css/block-features-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    register_block_type('childress/features', array(
+        'editor_script' => 'features-script',
+        'editor_style'  => 'features-editor-style',
+        'style'  => 'features-style',
+    ) );
+}
+add_action( 'init', 'features_block', 10, 0 );
