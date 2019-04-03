@@ -149,3 +149,33 @@ function simple_slider_block(){
     ) );
 }
 add_action( 'init', 'simple_slider_block', 10, 0 );
+
+///////////////////////////////////////////////////////////////////////////////
+// IMAGE & TEXT                                                              //
+///////////////////////////////////////////////////////////////////////////////
+function image_text_block(){
+    wp_register_script(
+        'image-text-script',
+        get_template_directory_uri() . '/js/block-image-text.js',
+        array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' )
+    );
+
+    wp_register_style(
+        'image-text-editor-style',
+        get_template_directory_uri() . '/css/block-image-text-editor-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    wp_register_style(
+        'image-text-style',
+        get_template_directory_uri() . '/css/block-image-text-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    register_block_type('childress/image-text', array(
+        'editor_script' => 'image-text-script',
+        'editor_style'  => 'image-text-editor-style',
+        'style'  => 'image-text-style',
+    ) );
+}
+add_action( 'init', 'image_text_block', 10, 0 );
