@@ -1,33 +1,25 @@
 @import '../_variables.sass'
 
 .wp-block-childress-features
-    display: flex
-
     &.features--grid
-        display: grid
-        grid-template-columns: 1fr 1fr
-        grid-gap: 30px
+        display: block
 
         .feature
-            display: flex
+            padding: 0
+            margin-bottom: 60px
 
             &__img
                 margin: 0 auto
-
-            &__info
-                margin-left: 30px
+                margin-bottom: 15px
 
             &__title
                 +font-size(28)
                 color: $color-primary
                 font-weight: bold
-
-            &__text
-                text-align: left
+                text-align: center
 
 .wp-block-childress-feature
-    flex: 1
-    padding: 0 30px
+    margin-bottom: 30px
 
     .feature
         &__img
@@ -37,5 +29,90 @@
             margin-bottom: 15px
 
         &__text
+            +font-size(18)
             font-weight: bold
             text-align: center
+
+@media screen and ( min-width: 576px )
+    .wp-block-childress-features
+        &.features--grid
+            display: block
+
+            .feature
+                align-items: center
+                display: flex
+
+                &__img
+                    flex: 1
+                    margin-bottom: 0
+
+                &__info
+                    flex: 2
+                    margin-left: 30px
+
+                &__title
+                    text-align: left
+
+                &__text
+                    text-align: left
+
+@media screen and ( min-width: 768px )
+    .wp-block-childress-features
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-gap: 30px
+
+        &.features--grid
+            display: grid
+            grid-template-columns: 1fr 1fr
+            grid-gap: 30px
+
+            .feature
+                flex-direction: column
+
+                &__img
+                    flex: unset
+                    margin-bottom: 15px
+
+                &__info
+                    flex: unset
+                    margin: 0
+
+                &__title
+                    text-align: center
+
+                &__text
+                    text-align: center
+
+@media screen and ( min-width: 992px )
+    .wp-block-childress-features
+        display: flex
+        grid-gap: 0
+
+        &.features--grid
+            .feature
+                align-items: center
+                flex-direction: row
+
+                &__img
+                    flex: 1
+                    margin-bottom: 0
+
+                &__info
+                    flex: 2
+                    margin-left: 30px
+
+                &__title
+                    text-align: left
+
+                &__text
+                    text-align: left
+
+    .wp-block-childress-feature
+        flex: 1
+        padding: 0 15px
+        margin-bottom: 0
+
+@media screen and ( min-width: 1200px )
+    .wp-block-childress-feature
+        padding: 0 30px

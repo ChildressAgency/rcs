@@ -77,7 +77,7 @@ registerBlockType( 'childress/features', {
         const { variant } = attributes;
 
         return (
-            <section className={ 'features container' + variant }>
+            <section className={ 'features container ' + variant }>
                 <InnerBlocks.Content />
             </section>
         );
@@ -150,20 +150,22 @@ registerBlockType( 'childress/feature', {
                         </Button>
                     ) }
                 />
-                <p className='feature__title'>
-                    <PlainText
-                        value={ title }
-                        onChange={ ( value ) => { setAttributes({ title: value }) } }
-                        placeholder='Title'
-                    />
-                </p>
-                <p className='feature__text'>
-                    <RichText
-                        value={ text }
-                        onChange={ ( value ) => { setAttributes({ text: value }) } }
-                        placeholder='Text'
-                    />
-                </p>
+                <div className='feature__info'>
+                    <p className='feature__title'>
+                        <PlainText
+                            value={ title }
+                            onChange={ ( value ) => { setAttributes({ title: value }) } }
+                            placeholder='Title'
+                        />
+                    </p>
+                    <p className='feature__text'>
+                        <RichText
+                            value={ text }
+                            onChange={ ( value ) => { setAttributes({ text: value }) } }
+                            placeholder='Text'
+                        />
+                    </p>
+                </div>
             </div>
         );
     },
