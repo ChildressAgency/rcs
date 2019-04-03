@@ -119,3 +119,33 @@ function features_block(){
     ) );
 }
 add_action( 'init', 'features_block', 10, 0 );
+
+///////////////////////////////////////////////////////////////////////////////
+// SIMPLE SLIDER                                                             //
+///////////////////////////////////////////////////////////////////////////////
+function simple_slider_block(){
+    wp_register_script(
+        'simple-slider-script',
+        get_template_directory_uri() . '/js/block-simple-slider.js',
+        array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' )
+    );
+
+    wp_register_style(
+        'simple-slider-editor-style',
+        get_template_directory_uri() . '/css/block-simple-slider-editor-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    wp_register_style(
+        'simple-slider-style',
+        get_template_directory_uri() . '/css/block-simple-slider-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    register_block_type('childress/simple-slider', array(
+        'editor_script' => 'simple-slider-script',
+        'editor_style'  => 'simple-slider-editor-style',
+        'style'  => 'simple-slider-style',
+    ) );
+}
+add_action( 'init', 'simple_slider_block', 10, 0 );

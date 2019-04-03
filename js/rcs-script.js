@@ -60,4 +60,16 @@ $(document).ready( function(){
         autoplaySpeed: 3000,
         infinite: true,
     });
+
+
+    /**
+     * SIMPLE SLIDER
+     */
+    $( '.wp-block-childress-simple-slider' ).slick({
+        arrows: true,
+        autoplay: false,
+        dots: true,
+        nextArrow: '<div class="simple-slider__arrow simple-slider__arrow--next"><i class="fas fa-chevron-right"></i></div>',
+        prevArrow: '<div class="simple-slider__arrow simple-slider__arrow--prev"><i class="fas fa-chevron-left"></i></div>',
+    });
 } );
