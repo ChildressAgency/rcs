@@ -84,7 +84,7 @@ registerBlockType( 'childress/simple-slider', {
 
 registerBlockType( 'childress/simple-slider-slide', {
     title: 'Slide',
-    icon: 'format-image,
+    icon: 'format-image',
     category: 'custom-blocks',
     parent: false,
 
