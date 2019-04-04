@@ -179,3 +179,33 @@ function image_text_block(){
     ) );
 }
 add_action( 'init', 'image_text_block', 10, 0 );
+
+///////////////////////////////////////////////////////////////////////////////
+// CLIENTS                                                                   //
+///////////////////////////////////////////////////////////////////////////////
+function clients_block(){
+    wp_register_script(
+        'clients-script',
+        get_template_directory_uri() . '/js/block-clients.js',
+        array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' )
+    );
+
+    wp_register_style(
+        'clients-editor-style',
+        get_template_directory_uri() . '/css/block-clients-editor-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    wp_register_style(
+        'clients-style',
+        get_template_directory_uri() . '/css/block-clients-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    register_block_type('childress/clients', array(
+        'editor_script' => 'clients-script',
+        'editor_style'  => 'clients-editor-style',
+        'style'  => 'clients-style',
+    ) );
+}
+add_action( 'init', 'clients_block', 10, 0 );
