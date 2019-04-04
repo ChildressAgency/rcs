@@ -209,3 +209,33 @@ function clients_block(){
     ) );
 }
 add_action( 'init', 'clients_block', 10, 0 );
+
+///////////////////////////////////////////////////////////////////////////////
+// SERVICES                                                                  //
+///////////////////////////////////////////////////////////////////////////////
+function services_block(){
+    wp_register_script(
+        'services-script',
+        get_template_directory_uri() . '/js/block-services.js',
+        array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' )
+    );
+
+    wp_register_style(
+        'services-editor-style',
+        get_template_directory_uri() . '/css/block-services-editor-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    wp_register_style(
+        'services-style',
+        get_template_directory_uri() . '/css/block-services-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    register_block_type('childress/services', array(
+        'editor_script' => 'services-script',
+        'editor_style'  => 'services-editor-style',
+        'style'  => 'services-style',
+    ) );
+}
+add_action( 'init', 'services_block', 10, 0 );
