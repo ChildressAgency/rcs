@@ -239,3 +239,34 @@ function services_block(){
     ) );
 }
 add_action( 'init', 'services_block', 10, 0 );
+
+///////////////////////////////////////////////////////////////////////////////
+// RCS MAP                                                                   //
+///////////////////////////////////////////////////////////////////////////////
+function rcs_map_block(){
+    wp_register_script(
+        'rcs-map-script',
+        get_template_directory_uri() . '/js/block-rcs-map.js',
+        array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' )
+    );
+
+    wp_register_style(
+        'rcs-map-editor-style',
+        get_template_directory_uri() . '/css/block-rcs-map-editor-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    wp_register_style(
+        'rcs-map-style',
+        get_template_directory_uri() . '/css/block-rcs-map-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    register_block_type('childress/rcs-map', array(
+        'editor_script' => 'rcs-map-script',
+        'editor_style'  => 'rcs-map-editor-style',
+        'style'  => 'rcs-map-style',
+        'render_callback'   => 'rcs_map_callback'
+    ) );
+}
+add_action( 'init', 'rcs_map_block', 10, 0 );

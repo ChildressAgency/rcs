@@ -72,4 +72,18 @@ $(document).ready( function(){
         nextArrow: '<div class="simple-slider__arrow simple-slider__arrow--next"><i class="fas fa-chevron-right"></i></div>',
         prevArrow: '<div class="simple-slider__arrow simple-slider__arrow--prev"><i class="fas fa-chevron-left"></i></div>',
     });
+
+
+    /**
+     * RCS MAP
+     */
+    $( '.rcs-map__country' ).mouseover( function(){
+        var name = $( this ).data( 'country-name' );
+
+        $( '#label-country-' + name ).css( 'display', 'block' );
+    } );
+
+    $( '.rcs-map__country' ).mouseout( function(){
+        $( '.rcs-map__label' ).css( 'display', 'none' );
+    } );
 } );
