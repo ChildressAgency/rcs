@@ -1,5 +1,16 @@
 @import '../_variables.sass'
 
+.wp-block-childress-services
+    &.services--small
+        .service
+            &__img
+                flex: unset
+                width: 100px
+
+            &__title
+                +font-size(22)
+
+
 .wp-block-childress-service
     margin-bottom: 60px
 
@@ -24,7 +35,7 @@
         grid-gap: 60px
         grid-template-columns: 1fr 1fr
 
-    .wp-block-childress-services
+    .wp-block-childress-service
         margin-bottom: 0
 
 @media screen and ( min-width: 992px )

@@ -30,26 +30,56 @@ registerBlockType( 'childress/services', {
     category: 'custom-blocks',
 
     attributes: {
-        
+        iconSize: {
+            type: 'string',
+            default: ''
+        }
     },
 
     edit( { attributes, className, setAttributes } ) {
+        const { iconSize } = attributes;
+
         return (
-            <section className={ className + ' services' }>
-                <InnerBlocks
-                    allowedBlocks={['childress/service']}
-                    template={[
-                        ['childress/service'],
-                        ['childress/service']
-                    ]}
-                />
-            </section>
+            <Fragment>
+                <InspectorControls>
+                    <PanelBody
+                        title={ 'Services Options' }
+                        initialOpen={ true }>
+                        <SelectControl
+                            label="Icon Size"
+                            value={ iconSize ? iconSize : '' }
+                            options={[
+                                {
+                                    label: 'Default',
+                                    value: ''
+                                },
+                                {
+                                    label: 'Small',
+                                    value: 'services--small'
+                                },
+                            ]}
+                            onChange={ ( value ) => setAttributes({ iconSize: value }) }
+                        />
+                    </PanelBody>
+                </InspectorControls>
+                <section className={ className + ' services ' + iconSize }>
+                    <InnerBlocks
+                        allowedBlocks={['childress/service']}
+                        template={[
+                            ['childress/service'],
+                            ['childress/service']
+                        ]}
+                    />
+                </section>
+            </Fragment>
         );
     },
 
     save( { attributes } ) {
+        const { iconSize } = attributes;
+
         return (
-            <section className='services container'>
+            <section className={ 'services container ' + iconSize }>
                 <InnerBlocks.Content />
             </section>
         );
