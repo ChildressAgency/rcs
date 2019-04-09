@@ -270,3 +270,34 @@ function rcs_map_block(){
     ) );
 }
 add_action( 'init', 'rcs_map_block', 10, 0 );
+
+///////////////////////////////////////////////////////////////////////////////
+// CONTACT                                                                   //
+///////////////////////////////////////////////////////////////////////////////
+function contact_tabs_block(){
+    wp_register_script(
+        'contact-tabs-script',
+        get_template_directory_uri() . '/js/block-contact-tabs.js',
+        array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' )
+    );
+
+    wp_register_style(
+        'contact-tabs-editor-style',
+        get_template_directory_uri() . '/css/block-contact-tabs-editor-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    wp_register_style(
+        'contact-tabs-style',
+        get_template_directory_uri() . '/css/block-contact-tabs-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    register_block_type('childress/contact-tabs', array(
+        'editor_script' => 'contact-tabs-script',
+        'editor_style'  => 'contact-tabs-editor-style',
+        'style'  => 'contact-tabs-style',
+        'render_callback'   => 'contact_tabs_callback'
+    ) );
+}
+add_action( 'init', 'contact_tabs_block', 10, 0 );

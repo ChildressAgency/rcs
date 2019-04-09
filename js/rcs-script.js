@@ -86,4 +86,30 @@ $(document).ready( function(){
     $( '.rcs-map__country' ).mouseout( function(){
         $( '.rcs-map__label' ).css( 'display', 'none' );
     } );
+
+
+    /**
+     * CONTACT TABS
+     */
+    $( '.contact-tabs' ).each( function(){
+        $( this ).find( '.contact-tabs__tab-title:first' ).addClass( 'contact-tabs__tab-title--active' );
+        $( this ).find( '.contact-tabs__tab-content:first' ).addClass( 'contact-tabs__tab-content--active' );
+    } );
+
+    $( '.contact-tabs__tab-title' ).click( function(){
+        var parent = $( this ).parent();
+        var contents = $( parent ).siblings( '.contact-tabs__contents' );
+        var index = $( this ).data( 'index' );
+
+        $( this ).siblings().each( function(){
+            $( this ).removeClass( 'contact-tabs__tab-title--active' );
+        } );
+        $( this ).addClass( 'contact-tabs__tab-title--active' );
+
+        var content = $( contents ).find( '[data-index="' + index + '"]' );
+        $( contents ).children().each( function(){
+            $( this ).removeClass( 'contact-tabs__tab-content--active' );
+        } );
+        $( content ).addClass( 'contact-tabs__tab-content--active' );
+    } );
 } );
