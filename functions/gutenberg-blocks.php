@@ -301,3 +301,33 @@ function contact_tabs_block(){
     ) );
 }
 add_action( 'init', 'contact_tabs_block', 10, 0 );
+
+///////////////////////////////////////////////////////////////////////////////
+// SERVICES EXAMPLE                                                          //
+///////////////////////////////////////////////////////////////////////////////
+function services_example_block(){
+    wp_register_script(
+        'services-example-script',
+        get_template_directory_uri() . '/js/block-services-example.js',
+        array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' )
+    );
+
+    wp_register_style(
+        'services-example-editor-style',
+        get_template_directory_uri() . '/css/block-services-example-editor-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    wp_register_style(
+        'services-example-style',
+        get_template_directory_uri() . '/css/block-services-example-style.css',
+        array( 'wp-edit-blocks' )
+    );
+
+    register_block_type('childress/services-example', array(
+        'editor_script' => 'services-example-script',
+        'editor_style'  => 'services-example-editor-style',
+        'style'  => 'services-example-style',
+    ) );
+}
+add_action( 'init', 'services_example_block', 10, 0 );

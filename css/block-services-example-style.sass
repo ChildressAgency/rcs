@@ -1,0 +1,52 @@
+@import '../_variables.sass'
+
+.wp-block-childress-services-example
+    .services-example
+        &__item
+            align-items: center
+            display: flex
+            left: 13%
+            position: absolute
+            right: 13%
+            top: 10%
+
+            img
+                display: block
+                flex: 1
+                margin-right: 15px
+
+            p
+                +fluid-font(8, 14, 280, 576)
+                flex: 5
+                font-weight: bold
+
+            &:nth-of-type(2)
+                bottom: 40%
+                top: unset
+
+@media screen and ( min-width: 576px )
+    .wp-block-childress-services-example
+        .services-example
+            &__item
+                img
+                    margin-right: 30px
+
+                p
+                    +font-size(14)
+
+@media screen and ( min-width: 768px )
+    .wp-block-childress-services-example
+        .services-example
+            &__item
+                img
+                    margin-right: 60px
+
+                p
+                    +font-size(20)
+
+@media screen and ( min-width: 992px )
+    .wp-block-childress-services-example
+        .services-example
+            &__item
+                p
+                    +font-size(30)
