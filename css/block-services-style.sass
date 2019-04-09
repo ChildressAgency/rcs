@@ -17,15 +17,13 @@
     .service
         &__img
             display: block
-            flex: 1
             height: 100%
-            margin: 0 auto
             margin-bottom: 30px
+            margin: 0 auto
             max-width: 250px
 
         &__title
             +font-size(24)
-            flex: 2
             font-weight: bold
             text-align: center
 
@@ -36,19 +34,27 @@
         grid-template-columns: 1fr 1fr
 
     .wp-block-childress-service
+        display: flex
+        flex-direction: column
         margin-bottom: 0
+
+        .service
+            &__img
+                margin-bottom: auto
 
 @media screen and ( min-width: 992px )
     .wp-block-childress-service
         align-items: center
-        display: flex
+        flex-direction: row
 
         .service
             &__img
+                flex: 1
                 margin-bottom: 0
                 margin-right: 30px
                 max-width: unset
 
             &__title
                 +font-size(24)
+                flex: 2
                 text-align: left
