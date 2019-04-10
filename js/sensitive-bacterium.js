@@ -9,30 +9,29 @@
 // For MicroHuman 
 // http://micro-human.org
 
-(function($){
+( function($){
 
     "use strict";
 
     var papers = [];
     var mypaper;
 
-    $(document).ready(function() {
+    $( document ).ready( function() {
 
         // initialize the paper animation
-        // papers = $('.capabilities__icon-hover-bg');
-        // var allPapers = $('.capabilities__icon-hover-bg');
+        var allPapers = $( '.capabilities__icon-hover-bg' );
 
-        // $( allPapers ).each( function(){
-        //     papers.push( new PaperWrap( $( this ) ) );
-        // } );
-        $( '.capabilities__column' ).mouseover( function(){
-            $( this ).find( '.capabilities__icon-hover-bg' ).addClass( 'capabilities__icon-active' );
-            mypaper = new PaperWrap( $('.capabilities__icon-active')[0] );
+        for( var i = 0; i < allPapers.length; i++ ){
+            var newPaper = new PaperWrap( allPapers[i] );
+            papers.push( newPaper );
+        }
+
+        $( '.wp-block-childress-capabilities-column' ).mouseover( function(){
+            $( this ).addClass( 'capabilities__column--active' );
         } );
-        $( '.capabilities__column' ).mouseout( function(){
-            $( this ).find( '.capabilities__icon-hover-bg' ).removeClass( 'capabilities__icon-active' );
-            mypaper.destroy();
-            mypaper = null;
+
+        $( '.wp-block-childress-capabilities-column' ).mouseout( function(){
+            $( this ).removeClass( 'capabilities__column--active' );
         } );
 
         // the footer
@@ -46,11 +45,11 @@
     });
 
     function fitPaperWraps() {
-        mypaper.fit();
-        // $( papers ).each( function(){
-        //     console.log( $( this ) );
-        //     $( this ).fit();
-        // } );
+        // mypaper.fit();
+        $( papers ).each( function(){
+            var thisPaper = $( this );
+            thisPaper.fit();
+        } );
     }
 
     $(window).resize(function() {
@@ -253,10 +252,5 @@
         view.onResize = function(event) {
             redrawBacterium();
         };
-
-        var destroy = this.destroy = function(){
-            bacterium.clear();
-            // bacterium = null;
-        }
     }
 })(jQuery);
