@@ -96,6 +96,14 @@ h2
         &:last-of-type
             margin-right: 0
 
+        &.active
+            background-color: $color-accent
+            padding: 5px 20px
+            border-radius: 50px
+
+            .navbar__link
+                color: $color-white
+
     &__link
         @extend %font-os
         color: $color-navbar

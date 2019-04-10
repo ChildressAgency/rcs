@@ -33,6 +33,10 @@ class Custom_Nav_Walker extends Walker_Nav_Menu {
             if( $hasChildren )
                 $output .= " navbar__drop";
 
+            // if this item goes to this page, then highlight it
+            if( $objectID == $pageID )
+                $output .= " active";
+
             // close the tag
             $output .= "\">";
 
