@@ -1,0 +1,60 @@
+@import '../_variables.sass'
+
+.wp-block-childress-services
+    &.services--small
+        .service
+            &__img
+                flex: unset
+                width: 100px
+
+            &__title
+                +font-size(22)
+
+
+.wp-block-childress-service
+    margin-bottom: 60px
+
+    .service
+        &__img
+            display: block
+            margin-bottom: 30px
+            margin: 0 auto
+            max-width: 250px
+
+        &__title
+            +font-size(24)
+            font-weight: bold
+            text-align: center
+
+@media screen and ( min-width: 768px )
+    .wp-block-childress-services
+        display: grid
+        grid-gap: 60px
+        grid-template-columns: 1fr 1fr
+
+    .wp-block-childress-service
+        display: flex
+        flex-direction: column
+        margin-bottom: 0
+
+        .service
+            &__img
+                margin-bottom: auto
+
+@media screen and ( min-width: 992px )
+    .wp-block-childress-service
+        align-items: center
+        flex-direction: row
+
+        .service
+            &__img
+                flex: 1
+                height: 100%
+                margin-bottom: 0
+                margin-right: 30px
+                max-width: unset
+
+            &__title
+                +font-size(24)
+                flex: 2
+                text-align: left

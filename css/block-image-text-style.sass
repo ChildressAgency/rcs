@@ -1,0 +1,41 @@
+@import '../_variables.sass'
+
+.wp-block-childress-image-text
+    .image-text
+        &__img
+            align-items: center
+            display: flex
+            flex: 2
+            justify-content: center
+            overflow: hidden
+            position: relative
+
+            img
+                height: 100%
+                object-fit: cover
+                width: 100%
+
+        &__content
+            align-items: center
+            display: flex
+            flex: 3
+            padding: 30px
+
+@media screen and ( min-width: 768px )
+    .wp-block-childress-image-text
+        display: flex
+
+        &.image-text--right
+            flex-direction: row-reverse
+
+@media screen and ( min-width: 992px )
+    .wp-block-childress-image-text
+        .image-text
+            &__content
+                padding: 30px 60px
+
+@media screen and ( min-width: 1200px )
+    .wp-block-childress-image-text
+        .image-text
+            &__content
+                padding: 30px 120px

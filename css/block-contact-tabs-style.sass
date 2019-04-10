@@ -1,0 +1,103 @@
+@import '../_variables.sass'
+
+.wp-block-childress-contact-tabs
+    box-shadow: 0 0 15px rgba(0, 0, 0, .25)
+
+    label
+        +font-size(16)
+
+    .contact-tabs
+        &__titles
+            margin-bottom: 15px
+
+        &__tab-title
+            cursor: pointer
+            flex: 1
+            position: relative
+            text-align: center
+            padding: 10px
+
+            &--active
+                background-color: $color-black
+                color: $color-white
+
+                & + .contact-tabs__tab-title
+                    &::before
+                        display: none
+
+        &__contents
+            padding: 15px
+
+        &__tab-content
+            display: none
+
+            &--active
+                display: block
+
+    .contact
+        &__info
+            margin-bottom: 15px
+            margin-top: 45px
+
+            span
+                input
+                    @extend %font-os
+                    border: 0
+                    border-bottom: 1px solid $color-black
+                    padding-bottom: 10px
+                    width: 100%
+
+                &:first-of-type
+                    margin-right: 60px
+
+        &__message
+            margin-bottom: 15px
+
+            label
+                font-weight: bold
+
+            textarea
+                @extend %font-os
+                border: 1px solid $color-black
+                width: 100%
+
+    .wpcf7-submit
+        @extend %font-os
+        +font-size(16)
+        background-color: $color-white
+        border: 1px solid $color-black
+        cursor: pointer
+        display: block
+        font-weight: bold
+        margin-left: auto
+        padding: 1px 30px
+
+@media screen and ( min-width: 768px )
+    .wp-block-childress-contact-tabs
+        .contact-tabs
+            &__titles
+                display: flex
+
+            &__tab-title
+                padding: 0
+
+                &::before
+                    background-color: rgba(0, 0, 0, .5)
+                    content: ' '
+                    height: 60%
+                    left: 0
+                    position: absolute
+                    top: 50%
+                    transform: translateY(-50%)
+                    width: 1px
+
+                &:first-of-type::before
+                    display: none
+
+        .contact
+            &__info
+                display: flex
+                justify-content: space-between
+
+                span
+                    flex: 1

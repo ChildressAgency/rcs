@@ -1,0 +1,305 @@
+@import '_reset.sass'
+@import '_variables.sass'
+
+
+body
+    @extend %font-os
+    +font-size(20)
+    line-height: 1.5
+    overflow-x: hidden
+
+a
+    color: $color-links
+    text-decoration: underline
+
+    &:hover
+        color: $color-links-hover
+        text-decoration: underline
+
+img
+    height: auto
+    max-width: 100%
+
+div,
+div::before, //sass-lint:disable-line force-pseudo-nesting
+div::after //sass-lint:disable-line force-pseudo-nesting
+    background-position: center center
+    background-size: cover
+
+p
+    margin-bottom: 15px
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+    @extend %font-os
+
+h2
+    +font-size(42)
+    color: $color-secondary
+
+///////////////////////////////////////////////////////////////////////////////
+// HEADER                                                                    //
+///////////////////////////////////////////////////////////////////////////////
+
+.header
+    align-items: center
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    padding: 15px 30px
+
+    &__brand
+        flex: 1
+        height: 100px
+        margin-bottom: 15px
+
+        img
+            height: 100%
+
+.navbar
+    &__toggler
+        +font-size(30)
+        background-color: transparent
+        border: 0
+        cursor: pointer
+        display: block
+        margin-bottom: 15px
+        margin-left: auto
+        margin-right: auto
+
+    &__nav
+        align-items: center
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        list-style-type: none
+        max-height: 0
+        overflow: hidden
+        transition: .3s max-height ease
+
+    &__item
+        +font-size(16)
+        font-weight: bold
+        margin-bottom: 15px
+        text-align: center
+
+        &::before
+            display: none
+
+        &:first-of-type
+            margin-left: 0
+
+        &:last-of-type
+            margin-right: 0
+
+        &.active
+            background-color: $color-accent
+            padding: 5px 20px
+            border-radius: 50px
+
+            .navbar__link
+                color: $color-white
+
+    &__link
+        @extend %font-os
+        color: $color-navbar
+        text-decoration: none
+
+        &:hover
+            color: $color-navbar-hover
+            text-decoration: none
+
+    &__drop-menu
+        background-color: $color-drop-menu-bg
+        list-style: none
+        max-height: 0
+        overflow: hidden
+        position: relative
+        transition: max-height .3s ease
+        z-index: 99
+
+        li
+            margin-bottom: 0
+
+            a
+                transition: background-color .3s ease
+
+                &:hover
+                    background-color: $color-drop-menu-hover
+                    font-style: italic
+
+        &:hover
+            display: block
+
+        &::before
+            content: ' '
+            height: 45px
+            left: 0
+            position: absolute
+            top: -45px
+            width: 100%
+
+    &__drop-item
+        +font-size(18)
+        color: $color-drop-text
+        display: block
+        margin-bottom: 0
+        padding: 5px 30px
+
+        &:first-of-type
+            padding-top: 15px
+
+        &:last-of-type
+            padding-bottom: 15px
+
+        &:hover
+            background-color: $color-drop-text-hover
+            text-decoration: none
+
+///////////////////////////////////////////////////////////////////////////////
+// COLORS                                                                    //
+///////////////////////////////////////////////////////////////////////////////
+
+
+.has-blue-background-color
+    background-color: $color-primary
+
+.has-blue-color
+    color: $color-primary
+
+.has-dark-blue-background-color
+    background-color: $color-primary-dark
+
+.has-dark-blue-color
+    color: $color-primary-dark
+
+.has-green-background-color
+    background-color: $color-secondary
+
+.has-green-color
+    color: $color-secondary
+
+.has-orange-background-color
+    background-color: $color-accent
+
+.has-orange-color
+    color: $color-accent
+
+.has-dark-grey-background-color
+    background-color: $color-dark-grey
+
+.has-dark-grey-color
+    color: $color-dark-grey
+
+.has-light-grey-background-color
+    background-color: $color-light-grey
+
+.has-light-grey-color
+    color: $color-light-grey
+
+.has-black-background-color
+    background-color: $color-black
+
+.has-black-color
+    color: $color-black
+
+.has-white-background-color
+    background-color: $color-white
+
+.has-white-color
+    color: $color-white
+
+
+///////////////////////////////////////////////////////////////////////////////
+// CONTENT                                                                    //
+///////////////////////////////////////////////////////////////////////////////
+
+.container
+    margin-left: auto
+    margin-right: auto
+    padding-left: 15px
+    padding-right: 15px
+    position: relative
+    width: 100%
+
+    &::after
+        clear: both
+        content: ' '
+        display: table
+
+    &--fluid
+        max-width: 100%
+
+    &--thin
+        width: 100%
+
+    &--no-padding
+        padding: 0
+
+.btn
+    +font-size(20)
+    border-radius: 20px
+    color: $color-btn
+    font-weight: bold
+    padding: 5px 20px
+    text-decoration: none
+    transition: color .3s ease, background-color .3s ease
+
+    &:hover
+        background-color: $color-btn
+        color: $color-white
+        text-decoration: none
+
+.wp-block-column
+    margin: 30px 0 !important
+
+
+///////////////////////////////////////////////////////////////////////////////
+// FOOTER                                                                    //
+/////////////////////////////////////////////////////////////////////////////// 
+
+.footer
+    padding: 30px
+
+    &__brand
+        +font-size(22)
+        align-items: center
+        border-bottom: 1px solid $color-footer-text
+        color: $color-footer-text
+        display: flex
+        flex-direction: column
+        font-weight: normal
+        justify-content: flex-start
+        margin-bottom: 30px
+        padding-bottom: 30px
+        text-align: center
+
+        img
+            height: 100px
+
+    &__brand-capital
+        +font-size(36)
+        font-weight: bold
+        margin-left: 15px
+
+    &__content
+        align-items: center
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+
+        & > *
+            +font-size(20)
+            text-align: center
+            width: 100%
+
+    &__heading
+        color: $color-footer-text
+        margin-bottom: 15px
+
+
+@import '_responsive.sass'

@@ -1,0 +1,55 @@
+// FONTS
+%font-os
+    font-family: 'Open Sans', sans-serif
+
+%font-os-italic
+    font-family: 'Open Sans', sans-serif
+    font-style: italic
+
+%font-os-semibold
+    font-family: 'Open Sans', sans-serif
+    font-weight: 600
+
+%font-os-bold
+    font-family: 'Open Sans', sans-serif
+    font-weight: 700
+
+
+// COLORS
+$color-primary: #005d83
+$color-primary-dark: #401958
+$color-secondary: #6ea34f
+$color-accent: #f7941f
+
+$color-blend-1: #53925c
+$color-blend-b: #378069
+$color-blend-c: #1c6f76
+
+$color-dark-grey: #333
+$color-light-grey: #f2f2f2
+
+$color-black: #000
+$color-white: #fff
+
+
+$color-links: $color-primary
+$color-links-hover: $color-secondary
+$color-btn: $color-accent
+$color-navbar: $color-accent
+$color-navbar-hover: $color-accent
+$color-drop-menu-bg: $color-secondary
+$color-drop-menu-hover: $color-secondary
+$color-drop-text: $color-white
+$color-drop-text-hover: $color-secondary
+$color-footer-text: $color-primary
+
+
+// MISC
+=font-size($size)
+    font-size: $size + px
+
+=fluid-font($min-font, $max-font, $min-viewport: 280, $max-viewport: 576)
+    font-size: calc((#{$min-font} * 1px) + #{strip-unit($max-font - $min-font)} * ((100vw - (#{$min-viewport} * 1px)) / #{strip-unit($max-viewport - $min-viewport)}))
+
+@function strip-unit($value)
+    @return $value / ($value * 0 + 1)

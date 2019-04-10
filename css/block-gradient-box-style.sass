@@ -1,0 +1,96 @@
+@import '../_variables.sass'
+
+
+.wp-block-childress-gradient-box
+    background-size: 300%
+    position: relative
+
+    &.gradient-box--bottom
+        .gradient-box
+            &__globe
+                height: 100%
+                left: 20%
+                top: -10%
+
+    .gradient-box
+        &__content
+            color: $color-white
+            padding: 30px 15px
+            position: relative
+            width: 100%
+
+        &__title
+            +font-size(42)
+            color: $color-white
+
+        &__text
+            +font-size(28)
+
+        &__globe
+            display: none
+            height: 175%
+            left: -30%
+            position: absolute
+            top: -25%
+            width: 100%
+            z-index: -1
+
+@media screen and ( max-width: 575px )
+    .wp-block-childress-gradient-box
+        background-image: linear-gradient(to right, $color-secondary, $color-primary) !important // sass-lint:disable-line no-important
+        height: unset !important // sass-lint:disable-line no-important
+
+@media screen and ( min-width: 576px )
+    .wp-block-childress-gradient-box
+        background-size: cover
+
+        &.gradient-box--top
+            background-position: bottom
+
+            .gradient-box__content
+                margin-left: auto
+                padding-top: 0
+                text-align: right
+                top: 40%
+                transform: translateY(-50%)
+
+        &.gradient-box--bottom
+            background-position: top
+
+            .gradient-box__content
+                bottom: 30px
+                position: absolute
+
+        .gradient-box
+            &__content
+                padding: 0 30px
+
+            &__globe
+                display: block
+
+
+@media screen and ( min-width: 768px )
+    .wp-block-childress-gradient-box
+        &.gradient-box--top
+            .gradient-box__content
+                padding-right: 60px
+
+        .gradient-box--bottom
+            .gradient-box__content
+                bottom: 60px
+                padding-left: 60px
+
+        .gradient-box
+            &__content
+                width: 70%
+
+@media screen and ( min-width: 992px )
+    .wp-block-childress-gradient-box
+        &.gradient-box--top
+            .gradient-box__content
+                top: 50%
+                width: 50%
+
+        &.gradient-box--bottom
+            .gradient-box__content
+                width: 45%

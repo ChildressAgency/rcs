@@ -1,0 +1,132 @@
+///////////////////////////////////////////////////////////////////////////////
+// 576                                                                       //
+///////////////////////////////////////////////////////////////////////////////
+
+@media screen and (min-width: 576px)
+    .container
+        max-width: 540px
+
+        &--fluid
+            max-width: 100%
+
+    .footer
+        padding: 60px
+
+///////////////////////////////////////////////////////////////////////////////
+// 768                                                                       //
+///////////////////////////////////////////////////////////////////////////////
+
+@media screen and (min-width: 768px)
+    .container
+        max-width: 720px
+
+        &--fluid
+            max-width: 100%
+
+        &--thin
+            max-width: 576px
+
+        &--half
+            .container--inner
+                width: 60%
+
+        &--right
+            .container--inner
+                margin-left: auto
+                position: relative
+                text-align: right
+
+    .navbar
+        &__toggler
+            display: none
+
+        &__nav
+            flex-direction: row
+            max-height: 100%
+            max-height: unset !important // sass-lint:disable-line no-important no-duplicate-properties
+
+        &__item
+            margin-bottom: 0
+            margin-left: 15px
+            margin-right: 15px
+
+        &__drop
+            &:hover
+                & > .navbar__drop-menu
+                    display: block
+
+        &__drop-menu
+            display: none
+            margin-top: 15px
+            max-height: unset !important // sass-lint:disable-line no-important
+            position: absolute
+
+    .wp-block-columns
+        display: flex
+
+    .wp-block-column
+        margin: 0 30px !important
+
+    .footer
+        &__brand
+            flex-direction: row
+            height: 100px
+            text-align: left
+
+            img
+                height: 100%
+
+        &__content
+            align-items: flex-start
+            flex-direction: row
+
+            & > *
+                +fluid-font(18, 20, 768, 992)
+                text-align: left
+                width: 33%
+
+///////////////////////////////////////////////////////////////////////////////
+// 992                                                                       //
+///////////////////////////////////////////////////////////////////////////////
+
+@media screen and (min-width: 992px)
+    .container
+        max-width: 960px
+
+        &--fluid
+            max-width: 100%
+
+        &--thin
+            max-width: 793px
+
+    .header
+        flex-direction: row
+        height: 100px
+
+        &__brand
+            height: 100%
+            margin-bottom: 0
+            margin-right: 15px
+
+    .navbar
+        &__item
+            +font-size(18)
+
+    .footer
+        &__content
+            & > *
+                +font-size(20)
+
+///////////////////////////////////////////////////////////////////////////////
+// 1200                                                                      //
+///////////////////////////////////////////////////////////////////////////////
+
+@media screen and (min-width: 1200px)
+    .container
+        max-width: 1140px
+
+        &--fluid
+            max-width: 100%
+
+        &--thin
+            max-width: 960px
