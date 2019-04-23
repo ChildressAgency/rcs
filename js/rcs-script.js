@@ -77,7 +77,7 @@ $(document).ready( function(){
     /**
      * RCS MAP
      */
-    $( '.rcs-map__country' ).mouseover( function(){
+    /*$( '.rcs-map__country' ).mouseover( function(){
         var name = $( this ).data( 'country-name' );
 
         $( '#label-country-' + name ).css( 'display', 'block' );
@@ -85,7 +85,37 @@ $(document).ready( function(){
 
     $( '.rcs-map__country' ).mouseout( function(){
         $( '.rcs-map__label' ).css( 'display', 'none' );
-    } );
+    } );*/
+
+    if(typeof rcs_featured_countries !== 'undefined'){
+      var countries = rcs_featured_countries.rcs_countries;
+      for(var $c = 0; $c < countries.length; $c++){
+        var featuredCountryId = countries[$c];
+        $('#' + featuredCountryId).addClass('featured-country');
+      }
+
+      var $infoBox = $('#info-box');
+      $('#rcs_reach').on({
+        mouseover: function(){
+          var countryName = $(this).data('country');
+          $infoBox.css('display', 'block');
+          $infoBox.text(countryName);
+        },
+        mouseleave: function(){
+          $infoBox.css('display', 'none');
+        },
+        mousemove: function(e){
+          $infoBox.css('top', e.pageY - $infoBox.height() - 10);
+          $infoBox.css('left', e.pageX - ($infoBox.width() + 50) / 2);
+        }
+      }, '.featured-country');
+    }
+    /*
+    //run this to get the list of country names from data-country in this svg
+    $('.rcs-map__country').each(function(){
+      var countryPrettyName = $(this).data('country');
+      $('.rcs-map').append(countryPrettyName + '<br />');
+    });*/
 
 
     /**
