@@ -77,9 +77,30 @@
 		wp_enqueue_script( 'snapsvgjs-script' );
 		wp_enqueue_script( 'snapsvgjs-lib-script' );
 		wp_enqueue_script( 'paperjs-script' );
-		wp_enqueue_script( 'rcs-sensitive-bacterium-script' );
+    wp_enqueue_script( 'rcs-sensitive-bacterium-script' );
+    
+    wp_localize_script('rcs-globe-script', 'rcs_featured_countries', array(
+      'rcs_countries' => rcs_get_featured_countries()
+    ));
 	}
-	add_action('wp_enqueue_scripts', 'rcs_scripts', 100);
+  add_action('wp_enqueue_scripts', 'rcs_scripts', 100);
+  
+  function rcs_get_featured_countries(){
+    $map_page = get_page_by_path('past-performance');
+    $map_page_id = $map_page->ID;
+
+    $featured_countries = get_post_meta($map_page_id, 'featured_countries', true);
+    $countries = array();
+    for($c = 0; $c < $featured_countries; $c++){
+      $country = get_post_meta($map_page_id, 'featured_countries_' . $c . '_country', true);
+      //var_dump($country);
+      $value = sanitize_title($country);
+      $countries[$c] = $value;
+      //$countries[$c]['name'] = $country['choices'][$value];
+    }
+
+    return $countries;
+  }
 	
 	// load styles
 	function rcs_styles(){
